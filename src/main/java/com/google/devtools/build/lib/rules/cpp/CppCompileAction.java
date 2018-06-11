@@ -1063,7 +1063,7 @@ public class CppCompileAction extends AbstractAction
   public void computeKey(ActionKeyContext actionKeyContext, Fingerprint fp) {
     fp.addUUID(actionClassId);
     env.addTo(fp);
-    fp.addStringMap(compileCommandLine.getEnvironment());
+    fp.addEnvStringMap(compileCommandLine.getEnvironment());
     fp.addStringMap(executionInfo);
 
     fp.addBytes(getCommandLineKey());
