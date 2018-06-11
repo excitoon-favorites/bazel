@@ -208,6 +208,7 @@ public final class LtoBackendAction extends SpawnAction {
       }
       fp.addPath(imports.getExecPath());
     }
+
     env.addTo(fp);
     fp.addStringMap(getExecutionInfo());
   }

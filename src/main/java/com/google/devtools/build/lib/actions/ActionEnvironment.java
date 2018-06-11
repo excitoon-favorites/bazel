@@ -233,7 +233,7 @@ public final class ActionEnvironment {
   }
 
   public void addTo(Fingerprint f) {
-    f.addStringMap(fixedEnv.toMap());
+    f.addEnvStringMap(fixedEnv.toMap());
     f.addStrings(inheritedEnv);
   }
 }
