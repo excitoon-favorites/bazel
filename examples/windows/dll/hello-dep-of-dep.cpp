@@ -1,10 +1,8 @@
 ﻿#include "hello-dep-of-dep.h"
 
-#include "hello-dep.h"
 
-
-int hello_dep()
+int hello_dep_of_dep()
 {
     // cdecl, can only be linked statically
-    return -hello_dep_of_dep();
+    return -42;
 }

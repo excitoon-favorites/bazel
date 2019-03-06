@@ -5,12 +5,26 @@ filegroup(
 )
 
 cc_library(
+    name = "hellodepofdep",
+    srcs = [
+        "hello-dep-of-dep.cpp",
+    ],
+    hdrs = [
+        "hello-dep-of-dep.h",
+    ],
+    linkstatic = 1,
+)
+
+cc_library(
     name = "hellodep",
     srcs = [
         "hello-dep.cpp",
     ],
     hdrs = [
         "hello-dep.h",
+    ],
+    deps = [
+        ":hellodepofdep",
     ],
     linkstatic = 1,
 )
