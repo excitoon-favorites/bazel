@@ -14,7 +14,7 @@ cc_library(
     hdrs = [
         "hello-dep-of-dep.h",
     ],
-    win_def_file = ":hello-dep-of-dep.def",
+    win_def_file = ":hello-dep-of-dep.def", # Just to avoid getting an error about import library.
 )
 
 cc_library(
@@ -28,7 +28,7 @@ cc_library(
     deps = [
         ":hellodepofdep",
     ],
-    win_def_file = ":hello-dep.def",
+    win_def_file = ":hello-dep.def", # Just to avoid getting an error about import library.
 )
 
 cc_library(
