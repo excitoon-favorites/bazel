@@ -5,6 +5,17 @@ filegroup(
 )
 
 cc_library(
+    name = "hellodep",
+    srcs = [
+        "hello-dep.cpp",
+    ],
+    hdrs = [
+        "hello-dep.h",
+    ],
+    linkstatic = 1,
+)
+
+cc_library(
     name = "hellolib",
     srcs = [
         "hello-library.cpp",
@@ -15,6 +26,7 @@ cc_library(
     # Define COMPILING_DLL to export symbols during compiling the DLL.
     # See hello-library.h
     copts = ["/DCOMPILING_DLL"],
+    deps = [":hellodep"],
 )
 
 # **Explicitly link to hellolib.dll**
