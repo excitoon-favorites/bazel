@@ -1,3 +1,5 @@
+load(":force_static.bzl", "force_static")
+
 filegroup(
     name = "srcs",
     srcs = glob(["**"]),
@@ -12,7 +14,7 @@ cc_library(
     hdrs = [
         "hello-dep-of-dep.h",
     ],
-    linkstatic = 1,
+    win_def_file = ":hello-dep-of-dep.def",
 )
 
 cc_library(
@@ -26,7 +28,7 @@ cc_library(
     deps = [
         ":hellodepofdep",
     ],
-    linkstatic = 1,
+    win_def_file = ":hello-dep.def",
 )
 
 cc_library(
@@ -40,7 +42,7 @@ cc_library(
     # Define COMPILING_DLL to export symbols during compiling the DLL.
     # See hello-library.h
     copts = ["/DCOMPILING_DLL"],
-    deps = [":hellodep"],
+    deps = force_static(name="deps_wrapper", deps=[":hellodep"]),
 )
 
 # **Explicitly link to hellolib.dll**
