@@ -1548,9 +1548,7 @@ public final class SkyframeActionExecutor {
 
     @Override
     public boolean artifactOmitted(Artifact artifact) {
-      // This class does not implement markOmitted() method so call to `artifactOmitted()`
-      // means logic error.
-      throw new UnsupportedOperationException();
+      return perActionCache.artifactOmitted(artifact) || perBuildFileCache.artifactOmitted(artifact);
     }
   }
 }
